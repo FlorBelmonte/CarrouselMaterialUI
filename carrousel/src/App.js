@@ -1,7 +1,6 @@
 import { Container, Paper, Typography } from '@mui/material';
 import './App.css';
-// import MediaCard from './components/Card';
-import Carrousel from './components/Carrousel'
+import Carrusel from './components/Carrousel'
 
 function App() {
   return (
@@ -10,10 +9,9 @@ function App() {
 
     <div className='App'>
     <Typography variant="h4" align="center">
-          Carrusel de Imágenes con Material-UI
+          Components Material-UI
         </Typography>
-    <Carrousel/>
-    {/* <MediaCard/> */}
+    <Carrusel/>
     </div>
     </Paper>
     </Container>
