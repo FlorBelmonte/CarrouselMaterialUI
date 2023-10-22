@@ -1,26 +1,43 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
 
 export default function MediaCard() {
+  const [imageData, setImageData] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get('https://api.unsplash.com/photos/random', {
+        headers: {
+          'Authorization': `Client-ID Y_L2phUQvlNmWE4N6GIfm6KeN_AEERef0Rto6abS900`
+        }
+      })
+      .then(response => {
+        const item = response.data;
+        setImageData({
+          imageUrl: item.urls.regular,
+          description: item.description || '',
+        });
+      })
+      .catch(error => {
+        console.error('Error al obtener datos de la API', error);
+      });
+  }, []);
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 200 }}
-        image="https://cdn0.ecologiaverde.com/es/posts/7/1/2/la_iguana_esta_en_peligro_de_extincion_4217_orig.jpg"
-        title="green iguana"
+        image={imageData ? imageData.imageUrl : 'placeholder.jpg'}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          Card
         </Typography>
       </CardContent>
       <CardActions>

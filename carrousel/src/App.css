@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-container .MuiCard-root {
+  display: inline-block;
+  margin: 10px; 
+}

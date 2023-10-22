@@ -9,7 +9,7 @@ export default function Carrusel() {
   useEffect(() => {
     axios.get('https://api.unsplash.com/photos/random?count=10', {
       headers: {
-        'Authorization': `Client-ID XH0t8k7MmtBqbbxM2fzBbvCK-sLN-I_9mCa75_pjrfM`
+        'Authorization': `Client-ID Y_L2phUQvlNmWE4N6GIfm6KeN_AEERef0Rto6abS900`
       }
     })
     .then(response => {
