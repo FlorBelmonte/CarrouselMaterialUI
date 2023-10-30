@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import axios from 'axios';
 
+const unsplashApiKey = process.env.REACT_APP_UNSPLASH_API_KEY;
+
 export default function ResponsiveTable() {
   const [tableData, setTableData] = useState([]);
 
@@ -9,7 +11,7 @@ export default function ResponsiveTable() {
     axios
       .get('https://api.unsplash.com/photos/random?count=10', {
         headers: {
-          'Authorization': `Client-ID x-v0XRVRRt_Z59x-UgwAEiCUelLJ_l2T3ZT1KcSX86U`
+          'Authorization': `Client-ID ${unsplashApiKey}`
         }
       })
       .then(response => {

@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 
+const unsplashApiKey = process.env.REACT_APP_UNSPLASH_API_KEY;
 
 export default function MediaCard() {
   const [imageData, setImageData] = useState(null);
@@ -15,7 +16,7 @@ export default function MediaCard() {
     axios
       .get('https://api.unsplash.com/photos/random', {
         headers: {
-          'Authorization': `Client-ID x-v0XRVRRt_Z59x-UgwAEiCUelLJ_l2T3ZT1KcSX86U`
+          'Authorization': `Client-ID ${unsplashApiKey}`
         }
       })
       .then(response => {

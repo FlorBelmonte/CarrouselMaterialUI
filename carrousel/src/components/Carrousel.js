@@ -3,13 +3,15 @@ import Carousel from 'react-material-ui-carousel';
 import Item from './Item';
 import axios from 'axios';
 
+const unsplashApiKey = process.env.REACT_APP_UNSPLASH_API_KEY;
+
 export default function Carrusel() {
   const [sliderData, setSliderData] = useState([]);
 
   useEffect(() => {
     axios.get('https://api.unsplash.com/photos/random?count=6', {
       headers: {
-        'Authorization': `Client-ID x-v0XRVRRt_Z59x-UgwAEiCUelLJ_l2T3ZT1KcSX86U`
+        'Authorization': `Client-ID ${unsplashApiKey}`
       }
     })
     .then(response => {
